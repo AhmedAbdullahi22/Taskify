@@ -46,3 +46,9 @@ exports.updateTasks = (req, res) =>{
 
 }
 
+exports.deleteTasks = (req, res) =>{
+    res.end(JSON.stringify({
+        message: 'Not yes implemented DeleteTasks'
+    }))
+
+}
