@@ -26,4 +26,13 @@ exports.createTasks = (req, res) =>{
             status: fields ?.status || 'parsing',
             Image: files.Image ?`/uploads/${image.originalFilename}`: null,
         }
-    
+        tasks.push(newTask);
+
+        writeTasksToFile(tasks);
+
+        if(files.image) {
+            copyFileSync(image.files.path, path.join(__dirname,'../uploads' , image.newFilename))
+            res.end(JSON.stringify(newTask))
+        }
+    })
+
